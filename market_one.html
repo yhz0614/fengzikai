@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>商城</title>
+	<style type="text/css">
+		body{
+		            width: 375px;
+		            height: 667px;
+		            background-color: white;
+		        }
+		.topTable{
+					margin: 0px auto;
+					list-style-type: none;
+					line-height: 40px;
+					margin: 0,auto;
+					height: 50px;
+					background-color: aquamarine;
+					padding:0px;
+					color:black;
+					display:flex;
+					justify-content:center;
+					border-bottom: 2px solid black;
+				}
+		
+		li{
+				width: 94px;	
+				line-height: 40px;
+				text-align: center;
+				font-size: 20px;
+				}
+		.order{
+			margin: auto auto;
+			width: 375px;
+			height: 200px;
+			background-color: whitesmoke;
+			border-bottom: 5px solid #E6E6FA;
+			overflow: auto;
+			
+		}
+		.current{
+			background-color: green;
+		}
+		.tt{
+			height: 40px;
+			width: 375px;
+			border-bottom: 1px solid gray;
+k;			
+		}
+		.orderName{
+			height: 40px;
+			font-size: 20px;
+			float: left;
+			padding: 4px 4px 4px 4px;
+
+		}
+		.state{
+			height: 40px;
+			font-size: 20px;
+			float: right;
+			padding: 4px 4px 4px 4px;
+			color: green;
+		}
+		.ttt{
+			height: 80px;
+			margin: 0px auto;
+		}
+		.picture{
+			background-image: url("封面.png");
+			width: 70px;
+			height: 98px;
+			float: left;
+		}
+		.buy{width: 300px;
+			height: 80px;
+			margin: 40px 80px ;
+			font-size: 18px;
+		}
+		.total{
+			font-size: 20px;
+			text-align: right;
+		}
+	
+	</style>
+</head>
+<body>
+<!-- 	导航栏 -->
+	<div class="top" >
+		<ul class="topTable" >
+			<li class="current" data-index="0" >全部</li>
+			<li data-index="1">已完成</li>
+			<li data-index="2">待付款</li>
+			<li data-index="3">已取消</li>
+		</ul>
+	</div>
+	<div class="allpage">
+<!-- 	全部 -->
+	<div class="order">
+		<div class="tt">
+			<div class="orderName">丰子恺画集</div>
+			<div class="state">交易成功</div>
+		</div>
+		<div class="ttt">		
+		<div class="picture"></div>
+		<div class="buy">下单时间：2018-10-12 18:00<br>订单数量：x1</div>
+		</div>
+		<div class="total">合计：205</div>
+	</div>
+<!-- 	已完成 -->
+	<div class="order">
+		<div class="tt">
+				<div class="orderName">丰子恺画集</div>
+				<div class="state">交易成功</div>
+			</div>
+			<div class="ttt">		
+			<div class="picture"></div>
+			<div class="buy">下单时间：2018-10-12 18:00<br>订单数量：x1</div>
+			</div>
+			<div class="total">合计：205</div>
+		</div>
+		<!-- 	待付款 -->
+<div class="order">
+		<div class="tt">
+			<div class="orderName">丰子恺画集</div>
+			<div class="state">交易正在处理</div>
+		</div>
+		<div class="ttt">		
+		<div class="picture"></div>
+		<div class="buy">下单时间：2018-10-12 18:00<br>订单数量：x1</div>
+		</div>
+		<div class="total">合计：205</div>
+	</div>
+	<!-- 	已取消 -->
+<div class="order">
+		<div class="tt">
+			<div class="orderName">丰子恺画集</div>
+			<div class="state">交易取消</div>
+		</div>
+		<div class="ttt">		
+		<div class="picture"></div>
+		<div class="buy">下单时间：2018-10-12 18:00<br>订单数量：x1</div>
+		</div>
+		<div class="total">合计：205</div>
+	</div>
+		</div>	
+	</div>
+	
+</body>
+<script>
+	var list = document.querySelector('.top').querySelectorAll('li');
+	var items = document.querySelector('.allpage').querySelectorAll('.order');
+	        for (var i = 0; i < list.length; i++) {
+	            list[i].onclick = function() {
+	                // 导航栏样式切换，排他算法
+	                for (var i = 0; i < list.length; i++) {
+	                    list[i].className = '';
+	                }
+	                // this.className = 'current';
+	                // 下面展示内容切换，排他算法
+	                var index = this.getAttribute('data-index');
+					if (index==0) {
+						for (var i = 0; i < items.length; i++) {
+						    items[i].style.display = 'block';
+							list[index].style.background='green';
+							list[i].style.backgroundColor='aquamarine';
+						}
+					}
+					else {
+	                for (var i = 0; i < items.length; i++) {
+	                    items[i].style.display = 'none';
+						list[i].style.background='aquamarine';
+	                }
+	                items[index].style.display = 'block';
+					list[index].style.background='green';
+	            }}
+	        }
+</script>
+</html>
