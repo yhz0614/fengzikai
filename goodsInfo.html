@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
 		<title></title>
 		<style type="text/css">
 			body{
@@ -20,16 +21,17 @@
 			}
 			.shop{
 				font-size: 25px;
+				height: 2em;
 				color: white;
 				justify-content: center;
 			}
-			.home{
+			.goback{
 				width: 40px;
 				height: 40px;
 				position: absolute;
 				left: 10px;
 				top:4px;
-				background-image: url("img/home.png") ;
+				background-image: url("img/goback.png") ;
 			}
 			.book{
 				width: 100%;
@@ -88,30 +90,19 @@
 				height: 3.5em;
 				background-image: url("img/others.png");
 			}
-/* 			.add_trolley{
+			.add_buy{
 				position: relative;
 				left: 11em;
-				top: 1.5em;
-				width: 5em;
+				top: 1em;
+				width: 10em;
 				height: 2em;
-				background-color: blue;
-				border-radius: 2em 0 0 2em;
+				background-image: url("img/torbuy.png");
 			}
-			.buy_now{
-				position: relative;
-				left: 16em;
-				top: -0.5em;
-				width: 5em;
-				height: 2em;
-				background-color: red;
-				border-radius:  0 2em 2em 0;
-			} */
-			
 		</style>
 	</head>
 	<body>
 		<div class="top">
-			<div class="home"></div>
+			<div class="goback" onclick="goback()"></div>
 			<div class="shop">小卖部</div>
 			</div>
 		<div class="book">
@@ -127,9 +118,13 @@
 			<div class="non"></div>
 			<div class="opereate">
 				<div class="left_op"></div>
-<!-- 				<div class="add_trolley">加入<div class="trolley_text"></div></div>
-				<div class="buy_now">现在购买</div> -->
+				<div class="add_buy"></div>
 			</div>
 		</div>
 	</body>
+	<script type="text/javascript">
+		function goback(){
+			window.history.back();
+		}
+	</script>
 </html>
